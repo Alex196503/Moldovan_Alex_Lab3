@@ -17,6 +17,7 @@ namespace Moldovan_Alex_Lab2.Data
         public DbSet<Moldovan_Alex_Lab2.Models.Book> Book { get; set; } = default!;
         public DbSet<Moldovan_Alex_Lab2.Models.Publisher> Publisher { get; set; }
         public DbSet<Author> Authors { get; set; } // Adaugă noua entitate Authors
+        public DbSet<Moldovan_Alex_Lab2.Models.Category> Category { get; set; } = default!;
 
     }
 }
