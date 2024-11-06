@@ -36,18 +36,19 @@ searchString)
             CurrentFilter = searchString;
             //se va include Author conform cu sarcina de la lab 2
             BookD.Books = await _context.Book
-            .Include(b => b.Authors)
+            .Include(b => b.Author)
             .Include(b => b.Publisher)
             .Include(b => b.BookCategories)
             .ThenInclude(b => b.Category)
             .AsNoTracking()
             .OrderBy(b => b.Title)
             .ToListAsync();
+
             if (!String.IsNullOrEmpty(searchString))
             {
-                BookD.Books = BookD.Books.Where(s => s.Authors.FirstName.Contains(searchString)
+                BookD.Books = BookD.Books.Where(s => s.Author.FirstName.Contains(searchString)
 
-               || s.Authors.LastName.Contains(searchString)
+               || s.Author.LastName.Contains(searchString)
                || s.Title.Contains(searchString));
             }
                 if (id != null)
@@ -65,11 +66,11 @@ searchString)
                         break;
                     case "author_desc":
                         BookD.Books = BookD.Books.OrderByDescending(s =>
-                       s.Authors.FullName);
+                       s.Author.FullName);
                         break;
                     case "author":
                         BookD.Books = BookD.Books.OrderBy(s =>
-                       s.Authors.FullName);
+                       s.Author.FullName);
                         break;
                     default:
                         BookD.Books = BookD.Books.OrderBy(s => s.Title);

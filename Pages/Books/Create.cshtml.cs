@@ -24,7 +24,7 @@ namespace Moldovan_Alex_Lab2.Pages.Books
             ViewData["PublisherID"] = new SelectList(_context.Set<Publisher>(), "ID", "PublisherName");
 
             // Concatenăm numele și prenumele pentru autori
-            var authorList = _context.Authors.Select(x => new
+            var authorList = _context.Author.Select(x => new
             {
                 x.ID,
                 FullName = x.LastName + " " + x.FirstName

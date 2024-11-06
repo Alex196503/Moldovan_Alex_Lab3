@@ -19,7 +19,7 @@ namespace Moldovan_Alex_Lab2.Models
 
         // Cheie străină către entitatea Author
         public int? AuthorID { get; set; }
-        public Author? Authors { get; set; }  // Navigation property
+        public Author? Author { get; set; }  // Navigation property
 
         public int? PublisherID { get; set; }
         public Publisher? Publisher { get; set; }  // Navigation property

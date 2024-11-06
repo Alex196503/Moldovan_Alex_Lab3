@@ -31,7 +31,7 @@ namespace Moldovan_Alex_Lab2.Pages.Categories
                 Categories = await _context.Category
                     .Include(c => c.BookCategories)
                     .ThenInclude(bc => bc.Book)
-                    .ThenInclude(b => b.Authors)
+                    .ThenInclude(b => b.Author)
                     .OrderBy(c => c.CategoryName)
                     .ToListAsync()
             };
